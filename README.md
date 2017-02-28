@@ -18,7 +18,7 @@ To try things out...
 - Trigger producer application - `java -jar kafka-cpu-metrics-producer.jar`. It will start emitting records to Kafka
 - Start one instance of consumer application - `java -jar kafka-cpu-metrics-consumer-1.0.jar` (note the auto-selected port). It will start calculating the moving average of machine CPU metrics
 - Access the metrics on this instance - `http://localhost:<inst1_port>/metrics`
-- Start another instance of consumer application - `java -jar app.jar` (note the auto-selected port), wait for a few seconds - the load will now be distributed amongst the two instances. Access the metrics `http://localhost:<inst2_port>/metrics` - you will see the metrics (JSON/XML payload) for all the machines as well as the instance on which the Cumulative Moving Average has been calculated
+- Start another instance of consumer application - `java -jar kafka-cpu-metrics-consumer-1.0.jar` (note the auto-selected port), wait for a few seconds - the load will now be distributed amongst the two instances. Access the metrics `http://localhost:<inst2_port>/metrics` - you will see the metrics (JSON/XML payload) for all the machines as well as the instance on which the Cumulative Moving Average has been calculated
 
 sample output - https://gist.github.com/abhirockzz/48e89873ae23c93d0a5cc721c87cc536
 
