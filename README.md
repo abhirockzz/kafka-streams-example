@@ -8,8 +8,8 @@ This is an example of a [Kafka Streams](https://kafka.apache.org/documentation/s
 
 This project has two modules
 
-- Producer application
-- Consumer (KStreams) application
+- [Producer](https://github.com/abhirockzz/kafka-streams-example/tree/master/kafka-producer) application
+- [Consumer](https://github.com/abhirockzz/kafka-streams-example/tree/master/kstreams-consumer) application (uses Kafka Streams)
 
 To try things out... 
 
