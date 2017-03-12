@@ -1,17 +1,20 @@
 This is an example of a [Kafka Streams](https://kafka.apache.org/documentation/streams) based microservice (packaged in form of an Uber JAR). The scenario is simple
 
+## Basics
+
 - A producer application continuously emits CPU usage metrics into a Kafka topic (cpu-metrics-topic)	
 - The consumer is a Kafka Streams application which uses the Processor (low level) Kafka Streams API to calculate the [Cumulative Moving Average](https://en.wikipedia.org/wiki/Moving_average#Cumulative_moving_average) of the CPU metrics of each machine
 - Consumers can be horizontally scaled - the processing work is distributed amongst many nodes and the process is elastic and flexible thanks to Kafka Streams (and the fact that it leverages Kafka for fault tolerance etc.)
 - Each instance has its own (local) state for the calculated average. A custom REST API has been (using Jersey JAX-RS implementation) to tap into this state and provide a unified view of the entire system (moving averages of CPU usage of all machines)
 
+### Setup
 
 This project has two modules
 
 - [Producer](https://github.com/abhirockzz/kafka-streams-example/tree/master/kafka-producer) application
 - [Consumer](https://github.com/abhirockzz/kafka-streams-example/tree/master/kstreams-consumer) application (uses Kafka Streams)
 
-To try things out... 
+## To try things out... 
 
 - Start Kafka broker. Configure `num.partitions` in Kafka broker `server.properties` file to 5 (to experiment with this application)
 - Build producer & consumer application - browse to the respective directory and execute `mvn clean install`
