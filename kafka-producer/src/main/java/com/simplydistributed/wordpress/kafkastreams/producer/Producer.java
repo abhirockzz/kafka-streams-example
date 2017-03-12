@@ -26,7 +26,7 @@ public class Producer implements Runnable {
         Properties kafkaProps = new Properties();
 
         String defaultClusterValue = "localhost";
-        String kafkaCluster = System.getenv().getOrDefault(KAFKA_CLUSTER_ENV_VAR_NAME, defaultClusterValue);
+        String kafkaCluster = System.getProperty(KAFKA_CLUSTER_ENV_VAR_NAME, defaultClusterValue);
         LOGGER.log(Level.INFO, "Kafka cluster {0}", kafkaCluster);
 
         kafkaProps.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, kafkaCluster);
