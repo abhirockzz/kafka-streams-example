@@ -19,9 +19,9 @@ This project has two modules
 - Start Kafka broker. Configure `num.partitions` in Kafka broker `server.properties` file to 5 (to experiment with this application)
 - Build producer & consumer application - browse to the respective directory and execute `mvn clean install`
 - Trigger producer application - `java -jar kafka-cpu-metrics-producer.jar`. It will start emitting records to Kafka
-- Start one instance of consumer application - `java -jar kafka-cpu-metrics-consumer-1.0.jar` (note the auto-selected port). It will start calculating the moving average of machine CPU metrics
+- Start one instance of consumer application - `java -jar kafka-cpu-metrics-consumer-1.0.jar -DKAFKA_CLUSTER=<kafka host:port>` (defaults to localhost if not provided). Note the auto-selected port. It will start calculating the moving average of machine CPU metrics
 - Access the metrics on this instance - `http://localhost:<inst1_port>/metrics`
-- Start another instance of consumer application - `java -jar kafka-cpu-metrics-consumer-1.0.jar` (note the auto-selected port), wait for a few seconds - the load will now be distributed amongst the two instances. Access the metrics `http://localhost:<inst2_port>/metrics` - you will see the metrics (JSON/XML payload) for all the machines as well as the instance on which the Cumulative Moving Average has been calculated
+- Start another instance of consumer application - `java -jar kafka-cpu-metrics-consumer-1.0.jar -DKAFKA_CLUSTER=<kafka host:port>` (note the auto-selected port), wait for a few seconds - the load will now be distributed amongst the two instances. Access the metrics `http://localhost:<inst2_port>/metrics` - you will see the metrics (JSON/XML payload) for all the machines as well as the instance on which the Cumulative Moving Average has been calculated
 
 sample output - https://gist.github.com/abhirockzz/48e89873ae23c93d0a5cc721c87cc536
 
