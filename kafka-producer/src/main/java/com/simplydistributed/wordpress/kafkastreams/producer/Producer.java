@@ -25,7 +25,7 @@ public class Producer implements Runnable {
         LOGGER.log(Level.INFO, "Kafka Producer running in thread {0}", Thread.currentThread().getName());
         Properties kafkaProps = new Properties();
 
-        String defaultClusterValue = "localhost";
+        String defaultClusterValue = "localhost:9092";
         String kafkaCluster = System.getProperty(KAFKA_CLUSTER_ENV_VAR_NAME, defaultClusterValue);
         LOGGER.log(Level.INFO, "Kafka cluster {0}", kafkaCluster);
 
